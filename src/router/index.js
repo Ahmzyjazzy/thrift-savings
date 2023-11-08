@@ -24,7 +24,7 @@ const router = createRouter({
       name: 'dashboard',
       component: HomeView,
       meta: {
-        // requiresAuth: true
+        requiresAuth: true
       }
     },
     {
@@ -47,7 +47,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   let session = null;
-  // supabase.auth.onAuthStateChange((event, session) => {
+  supabase.auth.onAuthStateChange((event, session) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
       if (!session) {
         next({ path: '/login' });
@@ -63,7 +63,7 @@ router.beforeEach((to, from, next) => {
         next();
       }
     }
-  // })
+  })
 })
 
 export default router
