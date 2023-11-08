@@ -1,5 +1,5 @@
 <template>
-     <main class="grid place-items-center h-screen w-screen">
+     <main class="grid place-items-start lg:place-items-center h-screen w-screen">
 
         <div class="">
             

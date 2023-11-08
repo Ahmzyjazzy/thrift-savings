@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     {
       path: '/login',
-      name: 'home',
+      name: 'login',
       component: LoginView
     },
     {
@@ -20,7 +20,8 @@ const router = createRouter({
       component: RegisterView
     },
     {
-      path: '/',
+      path: '/dashboard',
+      alias: '/',
       name: 'dashboard',
       component: HomeView,
       meta: {
@@ -45,25 +46,30 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  let session = null;
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      if (!session) {
-        next({ path: '/login' });
-      } else {
-        next();
-      }
+const getAuthenticatedUser = async () => {
+  const { error, data } = await supabase.auth.getSession();
+  const { session } = data;
+  return session;
+}
 
+router.beforeEach(async (to, from, next) => {
+  const session = await getAuthenticatedUser();
+  
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!session) {
+      next({ name: 'login' });
     } else {
+      next();
+    }
+
+  } else {
       // doest not require auth but check if user already logged in
       if (session) {
-        next({ path: '/' });
+        next({ name: 'dashboard' });
       } else {
         next();
       }
     }
-  })
 })
 
 export default router

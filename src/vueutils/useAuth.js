@@ -1,9 +1,10 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { supabase } from '@/lib/supabase'
-import { Session, Provider } from '@supabase/gotrue-js/dist/main/lib/types'
 import { toast } from 'vue3-toastify';
+import router from '@/router'
 
 const userSession = ref(null)
+const loading = ref(false)
 
 /*
  * Handles user login via email + password into a supabase session.
@@ -16,20 +17,30 @@ async function handleLogin(credentials) {
 
         if (!email || !password) return toast.error('Please provide both your email and password.');
 
-        const { error, user } = await supabase.auth.signInWithPassword({
+        loading.value = true
+
+        const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
         })
+
+        console.log({ data, error })
+
         if (error) {
             return toast.error(error.message);
         }
         // No error throw, but no user detected so send magic link
-        if (!error && !user) {
+        if (!error && !data) {
             return toast.error('Check your email for the login link');
         }
+        toast.success('Login successful!');
+
+        return router.push({ name: 'dashboard' })
     } catch (error) {
         console.error('Error thrown:', error.message)
         return toast.error(error.error_description || error);
+    } finally {
+        loading.value = false
     }
 }
 
@@ -130,6 +141,7 @@ async function handleLogout() {
 }
 
 export {
+    loading,
     userSession,
     handleLogin,
     handleOAuthLogin,

@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { handleLogin } from '../vueutils/useAuth'
+import { handleLogin, loading } from '../vueutils/useAuth'
 
 import AuthLayout from '@/layouts/AuthLayout.vue'
 
@@ -37,8 +37,16 @@ const password = ref('')
                             placeholder="*******" required>
                     </div>
                     </div>
-                    <button @click="handleLogin({ email, password })" type="submit" class="text-white bg-gradient-to-b from-orange-primary from-20%  via-orange-default via-90% to-orange-default to-90% focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
-                    Login
+                    <button 
+                        :disabled="loading"
+                        @click="handleLogin({ email, password })" 
+                        type="submit" 
+                        :class="[
+                            loading ? 
+                            'bg-gradient-to-b from-gray-400 from-20%  via-gray-500 via-90% to-gray-300' : 
+                            'bg-gradient-to-b from-orange-primary from-20%  via-orange-default via-90% to-orange-default to-90% focus:ring-4 focus:ring-orange-300']"
+                        class="text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">
+                    {{ loading ? 'Processing request. Please wait...' : 'Login' }}
                     </button>
                 </form>
             </div>
