@@ -9,7 +9,8 @@ module.exports = {
         orange: {
           default: '#FE944C',
           primary: '#F65E53',
-          secondary: '#FEF0EE'
+          secondary: '#FEF0EE',
+          typography: '#f6c6bc'
         }
       }
     },

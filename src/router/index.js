@@ -3,8 +3,9 @@ import { supabase } from '../lib/supabase'
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
-import ThriftView from '@/views/ThriftView.vue'
+import ThriftListView from '@/views/ThriftListView.vue'
 import HomeView from '@/views/HomeView.vue'
+import CreateThriftView from '@/views/CreateThriftView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,9 +30,21 @@ const router = createRouter({
       }
     },
     {
-      path: '/thrift',
-      name: 'thrift',
-      component: ThriftView
+      path: '/create',
+      alias: '/',
+      name: 'create-thrift',
+      component: CreateThriftView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/thrifts',
+      name: 'thrifts',
+      component: ThriftListView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/about',

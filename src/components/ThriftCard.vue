@@ -13,11 +13,11 @@ defineProps({
         required: false
     },
     totalSaved: {
-        type: String,
+        type: Number,
         required: false
     },
     totalGoal: {
-        type: String,
+        type: Number,
         required: false
     }
 })

@@ -1,3 +1,9 @@
+
+<script setup>
+import Footer from '../components/Footer.vue';
+
+</script>
+
 <template>
      <main class="grid place-items-start lg:place-items-center h-screen w-screen">
 
@@ -33,9 +39,7 @@
           </div>
 
           <slot name="footer">
-              <div class="flex justify-center items-center my-5">
-                <p class="text-gray-600 text-sm">Powered by <a href="" class="text-orange-primary font-medium">ThriftBox</a></p>
-              </div>
+             <Footer />
           </slot>
 
         </div>

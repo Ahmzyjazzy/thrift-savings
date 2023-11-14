@@ -1,4 +1,4 @@
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { supabase } from '@/lib/supabase'
 import { toast } from 'vue3-toastify';
 import router from '@/router'
@@ -23,8 +23,6 @@ async function handleLogin(credentials) {
             email,
             password,
         })
-
-        console.log({ data, error })
 
         if (error) {
             return toast.error(error.message);
