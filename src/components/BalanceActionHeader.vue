@@ -24,7 +24,7 @@
             <div 
                 class=" border-8 bg-gray-800 border-[#FAA38E] w-[80px] h-[80px] lg:w-[100px] lg:h-[100px] rounded-full grid place-items-center">
                 <!-- add profile pix -->
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                     </svg>
             </div>
