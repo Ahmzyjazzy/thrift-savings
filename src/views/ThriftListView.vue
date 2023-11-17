@@ -4,7 +4,7 @@ import { watch, onMounted } from 'vue'
 import ThriftCard from '../components/ThriftCard.vue';
 import HomeLayout from '../layouts/HomeLayout.vue';
 
-import { loading, fetchThriftSummary, allThrifts, activeFilter } from '../vueutils/useThrift'
+import { loading, fetchThriftSummary, allThrifts, activeFilter, calculatePercentage } from '../vueutils/useThrift'
 
 onMounted(() => {
     fetchThriftSummary()
@@ -68,8 +68,7 @@ watch(activeFilter, () => {
                             v-for="item in allThrifts" :key="item.id">
                             <ThriftCard 
                                 :title="item.title" 
-                                :description="item.description" 
-                                percentageSaved="67" 
+                                :description="item.description"
                                 :totalSaved="item.total_saved" 
                                 :totalGoal="item.target_amount"
                             />

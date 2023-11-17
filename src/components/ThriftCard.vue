@@ -1,5 +1,6 @@
 <script setup>
 import IconThrift from '../components/icons/IconThrift.vue'
+import { formatAmount, calculatePercentage } from '../vueutils/useThrift'
 
 defineProps({
     title: {
@@ -7,10 +8,6 @@ defineProps({
         required: true
     },
     description: {
-        type: String,
-        required: false
-    },
-    percentageSaved: {
         type: String,
         required: false
     },
@@ -39,20 +36,20 @@ defineProps({
                     <p class="text-gray-500 text-base">{{ description }}</p>
                 </div>
             </div>
-            <h5 class="font-bold text-xl text-orange-primary">{{ percentageSaved }}%</h5>
+            <h5 class="font-bold text-xl text-orange-primary">{{ calculatePercentage(totalGoal, totalSaved) }}%</h5>
         </div>
         <div class="outer-progress rounded-lg h-2 w-full bg-orange-secondary mt-5 mb-2">
-            <div class="progress-value rounded-lg h-2 w-8/12 bg-orange-primary"></div>
+            <div :style="{ width: calculatePercentage(totalGoal, totalSaved) + '%' }" class="progress-value rounded-lg h-2 w-8/12 bg-orange-primary"></div>
         </div>
         <div class="flex justify-between items-center">
             <h1 class="flex flex-row items-center relative text-gray-500">
                 <span class="text-xs mr-1 font-semibold leading-1">₦</span>
-                <span class=" text-lg font-semibold font-recoleta">{{ totalSaved }}.</span>
+                <span class=" text-lg font-semibold font-recoleta">{{ formatAmount(totalSaved) }}.</span>
                 <span class="text-xs font-semibold">00</span>
             </h1>
             <h1 class="flex flex-row items-center relative text-gray-500">
                 <span class="text-xs mr-1 font-semibold leading-1">₦</span>
-                <span class=" text-lg font-semibold font-recoleta">{{ totalGoal }}.</span>
+                <span class=" text-lg font-semibold font-recoleta">{{ formatAmount(totalGoal) }}.</span>
                 <span class="text-xs font-semibold">00</span>
             </h1>
         </div>

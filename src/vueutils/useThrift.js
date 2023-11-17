@@ -30,6 +30,10 @@ function formatAmount(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function calculatePercentage(targetAmount, totalSaved) {
+    return ((totalSaved/targetAmount) * 100)
+}
+
 async function fetchActiveBalance() {
     try {
         const { user } = userSession.value
@@ -163,5 +167,6 @@ export {
     balanceLoading,
     fetchActiveBalance,
     // helper
-    formatAmount
+    formatAmount,
+    calculatePercentage
 }

@@ -6,7 +6,7 @@ import ThriftCard from '../components/ThriftCard.vue';
 import TabSwitch from '../components/TabSwitch.vue';
 import BalanceActionHeader from '../components/BalanceActionHeader.vue';
 
-import { loading, fetchThriftSummary, allThrifts, activeFilter, balanceLoading } from '../vueutils/useThrift'
+import { loading, fetchThriftSummary, allThrifts, activeFilter } from '../vueutils/useThrift'
 
 onMounted(() => {
     fetchThriftSummary()
@@ -53,7 +53,6 @@ watch(activeFilter, () => {
                         <ThriftCard 
                             :title="item.title" 
                             :description="item.description" 
-                            percentageSaved="67" 
                             :totalSaved="item.total_saved" 
                             :totalGoal="item.target_amount"
                         />
