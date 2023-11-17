@@ -35,7 +35,7 @@ defineProps({
                     </slot>
                 </span>
                 <div class="flex-1">
-                    <h3 class="text-xl font-semibold">{{ title }}</h3>
+                    <h3 class="text-xl ">{{ title }}</h3>
                     <p class="text-gray-500 text-base">{{ description }}</p>
                 </div>
             </div>
@@ -47,12 +47,12 @@ defineProps({
         <div class="flex justify-between items-center">
             <h1 class="flex flex-row items-center relative text-gray-500">
                 <span class="text-xs mr-1 font-semibold leading-1">₦</span>
-                <span class=" text-lg font-semibold">{{ totalSaved }}.</span>
+                <span class=" text-lg font-semibold font-recoleta">{{ totalSaved }}.</span>
                 <span class="text-xs font-semibold">00</span>
             </h1>
             <h1 class="flex flex-row items-center relative text-gray-500">
                 <span class="text-xs mr-1 font-semibold leading-1">₦</span>
-                <span class=" text-lg font-semibold">{{ totalGoal }}.</span>
+                <span class=" text-lg font-semibold font-recoleta">{{ totalGoal }}.</span>
                 <span class="text-xs font-semibold">00</span>
             </h1>
         </div>

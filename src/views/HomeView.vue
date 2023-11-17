@@ -29,7 +29,7 @@ watch(activeFilter, () => {
 
             <div class="flex justify-between items-center">
                 <div>
-                    <h5 class="text-gray-800 font-medium text-xl">My Thrifts</h5>
+                    <h5 class="text-gray-800 font-medium text-xl font-recoleta">My Thrifts</h5>
                     <router-link :to="{ name: 'thrifts' }" class="text-sm text-orange-primary">
                         View All
                     </router-link>

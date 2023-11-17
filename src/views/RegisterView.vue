@@ -18,8 +18,8 @@ const password = ref('')
             <div>
 
                 <div>
-                    <h5 class="text-2xl font-medium mt-3">Create an Account</h5>
-                    <div class="flex gap-3 text-gray-500 text-xs">
+                    <h5 class="text-2xl font-medium mt-3 font-recoleta">Create an Account</h5>
+                    <div class="flex gap-3 text-gray-500 text-sm">
                         <span>Group Target Savings To Sell Faster and Buy Smarter</span>
                     </div>
                 </div>

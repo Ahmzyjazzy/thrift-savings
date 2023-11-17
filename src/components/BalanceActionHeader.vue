@@ -1,22 +1,34 @@
+<script setup>
+import { watch, onMounted } from 'vue'
+
+import { balanceLoading, fetchActiveBalance, thrifBalance, formatAmount } from '../vueutils/useThrift'
+
+onMounted(() => {
+    fetchActiveBalance()
+})
+
+</script>
+
+
 <template>
     <div class="flex justify-between items-start">
         <div>
             <div class="mb-5">
-                <h5 class="font-medium text-xl text-orange-typography mb-3">Total Saved:</h5>
+                <h5 class="font-medium text-xl text-orange-typography mb-3 font-museo">Total Saved:</h5>
                 <!-- FDB5A7 -->
                 <h1 class="flex flex-row items-center relative text-white">
                     <span class="text-md lg:text-xl mr-3 font-semibold leading-1">₦</span>
-                    <span class="text-3xl lg:text-6xl font-semibold">32,500,000.</span>
-                    <span class="text-md lg:text-xl font-semibold">90</span>
+                    <span class="text-3xl lg:text-6xl font-semibold font-recoleta">{{ formatAmount(thrifBalance.total_active_saved) }}.</span>
+                    <span class="text-md lg:text-xl font-semibold">00</span>
                 </h1>
             </div>
             <div>
-                <h5 class="font-medium text-xl text-orange-typography mb-3">Target:</h5>
+                <h5 class="font-medium text-xl text-orange-typography mb-3 font-museo">Target:</h5>
                 <!-- FDB5A7 -->
                 <h1 class="flex flex-row items-center relative text-white">
                     <span class="text-md mr-3 font-semibold leading-1">₦</span>
-                    <span class="text-3xl font-semibold">132,500.</span>
-                    <span class="text-md font-semibold">90</span>
+                    <span class="text-3xl font-semibold font-recoleta">{{ formatAmount(thrifBalance.total_active_target) }}.</span>
+                    <span class="text-md font-semibold">00</span>
                 </h1>
             </div>
         </div>

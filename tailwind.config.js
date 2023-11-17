@@ -5,6 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        museo: "Museo Sans",
+        recoleta: "Recoleta",
+      },
       colors: {
         orange: {
           default: '#FE944C',
