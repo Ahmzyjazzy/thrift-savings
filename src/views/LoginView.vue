@@ -19,7 +19,7 @@ const password = ref('')
                     <div>
                     <h5 class="text-2xl font-medium mt-3 font-recoleta">Login to Your Account</h5>
                     <div class="flex gap-3 text-gray-500 text-sm">
-                        <span>Group Target Savings To Sell Faster and Buy Smarter</span>
+                        <span>Group Target Savings For Friends, Family and Colleagues</span>
                     </div>
                     </div>
                 </div>

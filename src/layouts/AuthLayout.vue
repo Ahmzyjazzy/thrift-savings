@@ -17,7 +17,7 @@ import Footer from '../components/Footer.vue';
                         <img src="@/assets/images/thrift.jpeg" alt="" class="w-[100px] h-[100px] lg:w-[200px] lg:h-[200px] object-contain">
                     </figure>
                     <h4 class="font-medium text-white text-5xl mb-5 flex flex-col items-center font-recoleta">
-                        ThriftBox <sub class="text-xl text-center font-museo">Installmental Savings Plan To Help Sell Faster and Buy Smarter.</sub>
+                        ThriftBox <sub class="text-xl text-center font-museo">Group Savings Made Easy.</sub>
                     </h4>
                     <!-- <p class="text-white font-medium text-left mt-5">
                         <b>For Business Owners</b>, setup a group target savings thrift for your customers. 
